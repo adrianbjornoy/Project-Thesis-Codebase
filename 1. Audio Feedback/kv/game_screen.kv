@@ -1,0 +1,29 @@
+<GameScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        ClickableGrid:
+            id: clickable_grid
+            size_hint_y: 0.9
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.1
+            padding: dp(10)
+            spacing: dp(20)
+
+            MDLabel:
+                text: "Clicked Pos: X=" + str(app.x_value) + ", Y=" + str(app.y_value)
+                halign: 'center'
+
+            MDLabel:
+                text: "Level: " + str(app.current_level) + "/" + str(app.number_of_levels)
+                halign: 'center'
+
+            MDLabel:
+                text: "Clicks: " + str(app.clicks)
+                halign: 'center'
+
+            MDLabel:
+                text: "Time: " + str(app.time_elapsed) + " sec"
+                halign: 'center'

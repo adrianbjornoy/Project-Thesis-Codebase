@@ -1,0 +1,56 @@
+<StartScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(30)
+
+        MDLabel:
+            text: "Welcome to the PERSmed Sound Game!"
+            halign: 'center'
+            font_style: 'H4'
+
+        MDLabel:
+            text: "Select Feedback Mode:"
+            halign: 'center'
+
+        GridLayout:
+            cols: 1
+            size_hint_y: None
+            height: dp(300)
+            spacing: dp(10)
+            padding: dp(20)
+
+            CustomToggleButton:
+                text: 'Pitch Feedback'
+                state: 'down' if app.feedback_mode == 'pitch' else 'normal'
+                on_state:
+                    if self.state == 'down': app.feedback_mode = 'pitch'
+
+            CustomToggleButton:
+                text: 'Volume Feedback'
+                state: 'down' if app.feedback_mode == 'volume' else 'normal'
+                on_state:
+                    if self.state == 'down': app.feedback_mode = 'volume'
+
+            CustomToggleButton:
+                text: 'Directional Feedback'
+                state: 'down' if app.feedback_mode == 'directional' else 'normal'
+                on_state:
+                    if self.state == 'down': app.feedback_mode = 'directional'
+
+            CustomToggleButton:
+                text: 'Relative Feedback'
+                state: 'down' if app.feedback_mode == 'relative' else 'normal'
+                on_state:
+                    if self.state == 'down': app.feedback_mode = 'relative'
+
+            CustomToggleButton:
+                text: 'Beep Rate Feedback'
+                state: 'down' if app.feedback_mode == 'beep_rate' else 'normal'
+                on_state:
+                    if self.state == 'down': app.feedback_mode = 'beep_rate'
+
+        MDRectangleFlatButton:
+            text: "Start Game"
+            pos_hint: {'center_x': 0.5}
+            on_release: app.start_game()
